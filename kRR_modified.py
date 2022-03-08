@@ -43,11 +43,11 @@ class KernelRidge:
         self.kernel_matrix = None
 
     # Define kernels
-    def laplacian_kernel(self, x, y, sigma):
+    def laplacian_kernel(self, x, y):
         gamma = self.gamma
-        return np.exp(-linalg.norm(x - y) / sigma)
+        return np.exp(-linalg.norm(x - y) / gamma)
 
-    def kernel_gaussian(self, x1, x2, gamma=5.0):
+    def kernel_gaussian(self, x1, x2):
         gamma = self.gamma
         return np.exp(-linalg.norm(x1 - x2) ** 2 / (2 * (gamma ** 2)))
 
